@@ -6,7 +6,7 @@
 
 <section class="latest-projects py-5">
     <div class="container">
-        <h2 class="text-center mb-4">Our Latest Projects</h2>
+        <h2 class="text-center mb-4">OUR TEAM</h2>
         <div class="row">
             <!-- Project 1 -->
             <div class="col-md-6 mb-4">
