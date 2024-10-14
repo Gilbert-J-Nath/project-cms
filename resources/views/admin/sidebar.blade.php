@@ -1,26 +1,381 @@
-<div class="d-flex">
-    <!-- Sidebar -->
-    <nav class="sidebar bg-light" style="width: 250px; height: 100vh;">
-        <div class="sidebar-header p-3">
-            <h5 class="text-center">Dashboard</h5>
+<div class="sidebar">
+    <div class="logo_content">
+        <div class="logo">
+            <i class='bx bxl-c-plus-plus'></i>
+            <div class="logo_name">CodingLab</div>
         </div>
-        <ul class="nav flex-column p-3">
-            <li class="nav-item mb-2">
-                <a class="nav-link active" href="#">
-                    Menu Landing Page
-                </a>
-            </li>
-        </ul>
-        <div class="logout-button p-3">
-            <form action="#" method="POST">
-                @csrf
-                <button type="submit" class="btn btn-danger w-100">Logout</button>
-            </form>
+        <i class='bx bx-menu' id="btn"></i>
+    </div>
+    <ul class="nav_list">
+        <li>
+            <i class='bx bx-search'></i>
+            <input type="text" placeholder="Search">
+            <span class="tooltip">Search</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-grid-alt'></i>
+                <span class="links_name">Dashboard</span>
+            </a>
+            <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-user'></i>
+                <span class="links_name">User</span>
+            </a>
+            <span class="tooltip">User</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-chat'></i>
+                <span class="links_name">Message</span>
+            </a>
+            <span class="tooltip">Message</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-pie-chart-alt-2'></i>
+                <span class="links_name">Analytics</span>
+            </a>
+            <span class="tooltip">Analytics</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-folder'></i>
+                <span class="links_name">File Manager</span>
+            </a>
+            <span class="tooltip">Files</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-cart-alt'></i>
+                <span class="links_name">Order </span>
+            </a>
+            <span class="tooltip">Order</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-heart'></i>
+                <span class="links_name">Saved</span>
+            </a>
+            <span class="tooltip">Saved</span>
+        </li>
+        <li>
+            <a href="#">
+                <i class='bx bx-cog'></i>
+                <span class="links_name">Setting</span>
+            </a>
+            <span class="tooltip">Setting</span>
+        </li>
+    </ul>
+    <div class="profile_content">
+        <div class="profile">
+            <div class="profile_details">
+                <img src="{{ ('logo.png') }}" alt="">
+                <div class="name_job">
+                    <div class="name">Admin</div>
+                    <div class="job">Admin Dashboard</div>
+                </div>
+            </div>
+            <i class='bx bx-log-out' id="log_out"></i>
         </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="content flex-grow-1 p-4">
-        @yield('content') <!-- Tempat untuk konten utama -->
     </div>
 </div>
+<script>
+    let btn = document.querySelector("#btn");
+let sidebar = document.querySelector(".sidebar");
+let contentWrapper = document.querySelector("#page-content-wrapper");
+
+btn.onclick = function() {
+    sidebar.classList.toggle("active");
+    contentWrapper.classList.toggle("active");
+};
+
+
+    searchBtn.onclick = function() {
+        sidebar.classList.toggle("active");
+    }
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+    }
+
+    body {
+        position: relative;
+        min-height: 100vh;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    #wrapper {
+    display: flex;
+}
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 78px;
+        background: #11101d;
+        padding: 6px 14px;
+        transition: all 0.5s ease;
+    }
+
+    .sidebar.active {
+        width: 240px;
+    }
+
+    #page-content-wrapper {
+    width: 100%;
+    margin-left: 78px; /* Sesuaikan dengan lebar sidebar default */
+    transition: all 0.3s ease;
+}
+
+.sidebar.active ~ #page-content-wrapper {
+    margin-left: 240px; /* Sesuaikan dengan lebar sidebar ketika aktif */
+}
+
+.nav-tabs {
+    padding-left: 1rem;
+}
+
+    .sidebar .logo_content .logo {
+        color: #fff;
+        display: flex;
+        height: 50px;
+        width: 100%;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.5s ease;
+    }
+
+    .sidebar.active .logo_content .logo {
+        opacity: 1;
+        pointer-events: none;
+    }
+
+    .logo_content .logo i {
+        font-size: 28px;
+        margin-right: 5px;
+    }
+
+    .logo_content .logo .logo_name {
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .sidebar #btn {
+        position: absolute;
+        color: #fff;
+        left: 50%;
+        top: 6px;
+        font-size: 20px;
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        line-height: 50px;
+        transform: translateX(-50%);
+    }
+
+    .sidebar.active #btn {
+        left: 90%;
+    }
+
+    .sidebar ul {
+        margin-top: 20px;
+        padding-left: 0;
+    }
+
+    .sidebar ul li {
+        position: relative;
+        height: 50px;
+        width: 100%;
+        margin: 0 5px;
+        list-style: none;
+        line-height: 50px;
+    }
+
+    .sidebar ul li .tooltip {
+        position: absolute;
+        left: 122px;
+        top: 0;
+        transform: translate(-50%, -50%);
+        border-radius: 6px;
+        height: 35px;
+        width: 122px;
+        background: #fff;
+        line-height: 35px;
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        transition: 0s;
+        opacity: 0;
+        pointer-events: none;
+        display: block;
+    }
+
+    .sidebar.active ul li .tooltip {
+        display: none;
+    }
+
+    .sidebar ul li:hover .tooltip {
+        transition: all 0.5s ease;
+        opacity: 1;
+        top: 50%;
+    }
+
+    .sidebar ul li input {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        border-radius: 12px;
+        outline: none;
+        border: none;
+        background: #1d1b31;
+        padding-left: 50px;
+        font-size: 18px;
+        color: #fff;
+    }
+
+    .sidebar ul li .bx-search {
+        position: absolute;
+        z-index: 99;
+        color: #fff;
+        font-size: 22px;
+        transition: all 0.5 ease;
+    }
+
+    .sidebar ul li .bx-search:hover {
+        background: #fff;
+        color: #1d1b31;
+    }
+
+    .sidebar ul li a {
+        color: #fff;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        transition: all 0.4s ease;
+        border-radius: 12px;
+        white-space: nowrap;
+    }
+
+    .sidebar ul li a:hover {
+        color: #11101d;
+        background: #fff;
+    }
+
+    .sidebar ul li i {
+        height: 50px;
+        min-width: 50px;
+        border-radius: 12px;
+        line-height: 50px;
+        text-align: center;
+    }
+
+    .sidebar .links_name {
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.5s ease;
+    }
+
+    .sidebar.active .links_name {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .sidebar .profile_content {
+        position: absolute;
+        color: #fff;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .sidebar .profile_content .profile {
+        position: relative;
+        padding: 10px 6px;
+        height: 60px;
+        background: #1d1b31;
+    }
+
+    .profile_content .profile .profile_details {
+        display: flex;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        white-space: nowrap;
+    }
+
+    .sidebar.active .profile .profile_details {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .profile .profile_details img {
+        height: 45px;
+        width: 45px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    .profile .profile_details .name_job {
+        margin-left: 10px;
+    }
+
+    .profile .profile_details .name {
+        font-size: 15px;
+        font-weight: 400;
+    }
+
+    .profile .profile_details .job {
+        font-size: 12px;
+    }
+
+    .profile #log_out {
+        position: absolute;
+        bottom: 5px;
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: 50px;
+        line-height: 50px;
+        font-size: 20px;
+        border-radius: 12px;
+        text-align: center;
+    }
+
+    .sidebar.active .profile #log_out {
+        left: 88%;
+    }
+
+    .home_content {
+        position: absolute;
+        height: 100%;
+        width: calc(100% - 78px);
+        left: 78px;
+        transition: all 0.5s ease;
+    }
+
+    .home_content .text {
+        font-size: 25px;
+        font-weight: 500;
+        color: #1d1b31;
+        margin: 12px;
+    }
+
+    .sidebar.active~.home_content {
+        width: calc(100% - 60px);
+        left: 240px;
+    }
+</style>

@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return
-    view('welcome.landing_page');
+    view('admin.menu-landing');
 });
 
-Route::get('/menu_landing', [LandingController::class, 'showNewsCard']);
-Route::post('/admin/update-background', [LandingController::class, 'updateLandingContent'])->name('admin.updateBackground');
+// Route::get('/menu_landing', [LandingController::class, 'showNewsCard']);
+// Route::post('/admin/update-background', [LandingController::class, 'updateLandingContent'])->name('admin.updateBackground');
