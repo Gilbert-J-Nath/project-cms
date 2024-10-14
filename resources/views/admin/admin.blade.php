@@ -51,7 +51,7 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <!-- Header -->
-            @include('admin.header')
+          
 
             <div class="container-fluid mt-4">
                 @yield('content')
