@@ -8,7 +8,7 @@
                     <!-- Caption Carousel -->
                     <div class="carousel-caption d-none d-md-block position-absolute text-start" style="width: 30%; left: 10vh; bottom: 0vh">
                         <h1 class="display-3 fw-bold text-white" style="font-size: 40px">HERO</h1>
-                        <p class="text-white" style="font-size: 13px; margin: 0; text-align: justify">
+                        <p class="text-white" style="font-size: 16px; margin: 0; text-align: justify">
                         Lorem ipsum dolor sit amet. Et galisum nostrum ea asperiores blanditiis ut possimus illum 
                         et reprehenderit consequatur aut autem laudantium nam Quis optio. Qui pariatur deserunt nam 
                         culpa odit et voluptatem dolore sed enim aperiam est veniam quam et beatae amet. Sed quaerat 
@@ -25,11 +25,11 @@
                 </div>
 
                 <!-- Controls -->
-                <button class="carousel-control-prev custom-control-carousel ps-5" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+                <button class="carousel-control-prev custom-control-carousel ps-1" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Prev</span>
                 </button>
-                <button class="carousel-control-next custom-control-carousel pe-5" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+                <button class="carousel-control-next custom-control-carousel pe-1" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Next</span>    
                 </button>
@@ -40,8 +40,8 @@
 
 <style>
     .custom-control-carousel {
-        width: 15vh;
+        width: 8vh;
         background-color: #333333;
-        opacity: 1;
+        opacity: 100;
     }
 </style>
